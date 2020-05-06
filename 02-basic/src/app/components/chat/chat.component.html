@@ -1,0 +1,33 @@
+<article class="col-12 chat">
+
+  <header class="">
+    <h1>Messages</h1>
+  </header>
+
+
+
+  <section id="chat-message" class="col-12 mt-3 chat-message">
+    <li
+      class="list-group-item"
+      *ngFor="let msg of messages"
+    >
+      {{ msg.from }}: {{ msg.body }}
+    </li>
+  </section>
+
+  <section class="col-12 mt-3 input-message-group">
+    <form (ngSubmit)="send()">
+      <input
+        type="text"
+        [(ngModel)]="text"
+        class="form-control"
+        name="text"
+        placeholder="Mensaje..."
+        autofocus
+        autocomplete="off"
+      >
+
+    </form>
+  </section>
+
+</article>

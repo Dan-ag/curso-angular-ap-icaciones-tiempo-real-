@@ -1,0 +1,16 @@
+@import 'src/styles/mixins';
+
+.chat {
+  @include flex-container();
+
+  padding: 1rem;
+
+  .chat-message {
+    flex: auto;
+    overflow-y: auto;
+  }
+
+  .input-message-group {
+    flex: 0;
+  }
+}

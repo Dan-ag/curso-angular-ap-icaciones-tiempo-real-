@@ -9,7 +9,7 @@ import { SERVER_PORT } from './global/enviroment';
 // Routers
 import router from './routes/router';
 
-const server = new Server();
+const server = Server.instance;
 
 // BodyParser
 server.app.use( bodyParser.urlencoded({ extended: true }) );
