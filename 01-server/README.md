@@ -1,16 +1,16 @@
 # Socket-Server
 
-Reconstruir modules Node
+- Reconstruir modules Node
 ```
 npm install
 ```
 
-Generar 
-´´´
+- Transpilar codigo typescript
+```
 tsc -w
-´´´
+```
 
-Iniciar servidor
-´´´
+- Iniciar servidor
+```
 node dist/
-´´´
+```

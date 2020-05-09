@@ -34,13 +34,19 @@ export default class Server {
     console.log('listen sockets...');
 
     this.io.on( 'connection', client => {
-      console.log( 'Client conneted!' );
+      console.log( 'Client conneted!', client.id );
+
+      // client connect
+      socket.clientConnect( client )
 
       // Message
       socket.message( client, this.io );
 
       // Disconnect
       socket.disconnect( client );
+
+      // User Config
+      socket.userConfig( client, this.io );
 
     })
   }

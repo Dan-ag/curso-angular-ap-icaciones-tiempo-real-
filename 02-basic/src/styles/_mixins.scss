@@ -1,6 +1,6 @@
-@mixin flex-container {
+@mixin flex-container( $direction: column ) {
   display: flex;
-  flex-direction: column;
+  flex-direction: $direction;
   flex: 1;
   overflow: hidden;
 }

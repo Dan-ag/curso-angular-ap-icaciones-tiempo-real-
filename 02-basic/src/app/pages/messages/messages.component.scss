@@ -1,0 +1,9 @@
+@import 'src/styles/mixins';
+
+.messages{
+  @include flex-container();
+
+  .content{
+    @include flex-container( row );
+  }
+}

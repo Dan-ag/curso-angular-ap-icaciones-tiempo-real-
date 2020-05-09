@@ -6,7 +6,7 @@
 
 
 
-  <section id="chat-message" class="col-12 mt-3 chat-message">
+  <section id="chat-message" class="col-12 mt-3 px-0 chat-message">
     <li
       class="list-group-item"
       *ngFor="let msg of messages"
@@ -15,7 +15,7 @@
     </li>
   </section>
 
-  <section class="col-12 mt-3 input-message-group">
+  <section class="col-12 mt-3 px-0 input-message-group">
     <form (ngSubmit)="send()">
       <input
         type="text"
