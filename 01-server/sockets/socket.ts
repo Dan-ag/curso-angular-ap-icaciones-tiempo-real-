@@ -5,12 +5,7 @@ import socketIO from 'socket.io';
 import { UserList } from '../classes/user-list';
 import { User } from '../classes/user';
 
-let connectedUsers: UserList;
-
-export const getConnectedUsers = () => {
-  return connectedUsers || ( connectedUsers = new UserList() );
-};
-getConnectedUsers();
+export const connectedUsers = new UserList();
 
 export const clientConnect = ( client: Socket ) => {
   const user = new User( client.id );
@@ -18,10 +13,10 @@ export const clientConnect = ( client: Socket ) => {
   
 }
 
-export const disconnect = ( client: Socket ) => {
+export const disconnect = ( client: Socket, io: socketIO.Server ) => {
   client.on( 'disconnect', () => {
     console.log( 'client disconnected!' );
-    getConnectedUsers().deleteUserById( client.id );
+    connectedUsers.deleteUserById( client.id );
   } );
 };
 
@@ -33,16 +28,12 @@ export const message = ( client: Socket, io: socketIO.Server ) => {
 };
 
 export const userConfig = ( client: Socket, io: socketIO.Server ) => {
-  client.on(
-    'user-config',
-    ( payload: { name: string; },
-      callback: ( obj: any ) => void
-    ) => {
-
-      console.log( 'Config User:', payload );
-      console.log( 'Ip Client:', client.handshake.url );
+  client.on( 'user-config', ( payload: { name: string; }, callback: ( obj: any ) => void ) => {
 
       connectedUsers.updateName( client.id, payload.name );
+      setTimeout( () => {
+        io.emit( 'activeUsers', connectedUsers.getList() )
+      }, 10)
 
       callback( {
         ok: true,
@@ -50,3 +41,15 @@ export const userConfig = ( client: Socket, io: socketIO.Server ) => {
       } );
     } );
 };
+
+// export const getUsers = ( client: Socket, io: socketIO.Server ) => {
+
+//   client.on( 'getUsers', () => {
+
+//     const user = connectedUsers.getList().find( user => user.name === payload.name )
+//     if ( user ) {
+//       console.log('user logged send list..');
+//       io.in( client.id ).emit( 'activeUsers', connectedUsers.getList() )
+//     }
+//   } );
+// }

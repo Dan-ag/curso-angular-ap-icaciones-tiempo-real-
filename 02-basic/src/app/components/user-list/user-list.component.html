@@ -1,1 +1,20 @@
-<p>user-list works!</p>
+<header class="col-12">
+<h1>Usuarios</h1>
+</header>
+
+<article>
+  <section>
+
+    <ul>
+      <li class="list-group-item" *ngFor="let user of userActive$ | async">
+        <span>{{ user.name }}&nbsp;</span>
+        <span class="badge badge-primary">
+          {{ user.sala || 'Sin sala' }}
+        </span>
+        <span class="badge badge-info">
+          {{user.id}}
+        </span>
+      </li>
+    </ul>
+  </section>
+</article>

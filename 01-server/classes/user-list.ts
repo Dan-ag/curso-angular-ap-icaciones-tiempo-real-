@@ -25,7 +25,7 @@ export class UserList {
   }
 
   getList() {
-    return this.list;
+    return this.list.filter( user => user.name !== 'nameless' );
   }
 
   getUserById( id: string ) {

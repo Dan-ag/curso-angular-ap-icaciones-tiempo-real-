@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
   }
 
   signIn() {
-    console.log( this.name );
     this.wsService.loginWS( this.name ).then( () => {
       this.router.navigateByUrl('/messages');
     });
