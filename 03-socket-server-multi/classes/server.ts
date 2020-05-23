@@ -23,6 +23,7 @@ export default class Server {
     this.io = socketIO( this.httpServer );
 
     this.socketListener();
+
   }
 
   public static get instance() {

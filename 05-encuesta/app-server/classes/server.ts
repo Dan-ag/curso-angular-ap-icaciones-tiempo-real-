@@ -35,21 +35,11 @@ export default class Server {
     this.io.on( 'connection', client => {
       console.log( 'Client conneted!', client.id );
 
-      // client connect
-      socket.clientConnect( client );
-
       // Message
       socket.message( client, this.io );
 
       // Disconnect
       socket.disconnect( client, this.io );
-
-      // User Config
-      socket.userConfig( client, this.io );
-
-      // Get User List
-      // socket.getUsers( client, this.io )
-
     })
   }
 
