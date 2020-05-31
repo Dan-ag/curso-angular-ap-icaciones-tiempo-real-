@@ -1,0 +1,43 @@
+<table>
+
+  <tr>
+
+    <td valign="middle" class="ticket-actual">
+      <span id="lblTicket1" class="ticket-actual-numero">Ticket {{ ticketsTaken[0]? ticketsTaken[0].number: '-' }}</span>
+      <br>
+      <span id="lblEscritorio1" class="ticket-actual-escritorio">Escritorio {{ ticketsTaken[0]? ticketsTaken[0].desk: '-' }}</span>
+    </td>
+
+    <td>
+      <table>
+
+        <tr *ngIf="ticketsTaken[1]">
+          <td>
+            <span id="lblTicket2" class="ticket-secundario">Ticket {{ ticketsTaken[1]? ticketsTaken[1].number: 'X' }}</span>
+            <br>
+            <span id="lblEscritorio2">Escritorio {{ ticketsTaken[1]? ticketsTaken[1].desk: 'X' }}</span>
+          </td>
+        </tr>
+
+        <tr *ngIf="ticketsTaken[2]">
+          <td>
+            <span id="lblTicket3" class="ticket-secundario">Ticket {{ ticketsTaken[2]? ticketsTaken[2].number: 'Y' }}</span>
+            <br>
+            <span id="lblEscritorio3">Escritorio {{ ticketsTaken[2]? ticketsTaken[2].desk: 'Y' }}</span>
+          </td>
+        </tr>
+
+        <tr *ngIf="ticketsTaken[3]">
+          <td>
+            <span id="lblTicket4" class="ticket-secundario">Ticket {{ ticketsTaken[3]? ticketsTaken[3].number: 'Z' }}</span>
+            <br>
+            <span id="lblEscritorio4">Escritorio {{ ticketsTaken[3]? ticketsTaken[3].desk: 'Z' }}</span>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+
